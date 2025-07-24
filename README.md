@@ -81,6 +81,67 @@ No latency tax. No wasted cycles.
 | 📊 **Synthesis Report** | ![Synthesis Report](https://github.com/user-attachments/assets/f90eb376-ad13-4861-8a48-ab5f095f2e95) |
 | 📟 **C Simulation Output** | ![C Sim Output](https://github.com/user-attachments/assets/57a67bc5-8488-4f5a-8fd7-041b5db09778) |
 
+ # 🚀 Lock-Free FPGA Queue for High-Frequency Trading (HFT)
+
+This is not your average FIFO. This is a fully pipelined, BRAM-backed, single-producer single-consumer (SPSC) queue designed to obliterate lock-based latency in high-frequency trading systems.
+
+---
+
+## 🔥 Why It Matters
+
+When **nanoseconds = millions**, software locks just don’t cut it. This lock-free SPSC queue:
+
+- ❌ No locks
+- ❌ No FIFOs
+- ❌ No DSPs
+- ✅ Fully pipelined
+- ✅ 100% deterministic timing
+- ✅ BRAM circular buffer
+- ✅ Synthesized with II=1, latency = 5 cycles
+- ✅ CoSim, CSim, and Waveform ✅
+
+---
+
+## 💡 Built For:
+
+- FIX/ITCH packet pipelines
+- Market snapshot replay
+- FPGA risk-aware strategy engines
+- Predictable FIFO-less queuing across accelerators
+
+---
+
+## 📊 Performance Snapshot
+
+| Metric | Value |
+|--------|-------|
+| CoSim | ✅ Passed |
+| II | 1 |
+| Latency | 5 cycles |
+| FFs | 38 |
+| LUTs | 175 |
+| BRAM | 1 |
+| URAM | 0 |
+| DSPs | 0 |
+
+---
+
+## 🧪 Visual Proof
+
+| Preview | Description |
+|--------|-------------|
+| ![](https://github.com/user-attachments/assets/3fae93d7-d69b-41c9-adfd-ad5aadf80cc4) | AXI4 + BRAM Block Design |
+| ![](https://github.com/user-attachments/assets/4553a229-ee3a-477c-a52b-b92137bf0557) | RTL Cosim Waveform |
+| ![](https://github.com/user-attachments/assets/b868f047-17e3-4b0c-9421-e4d40fdde148) | RTL Cosim |
+| ![](https://github.com/user-attachments/assets/b0b61c40-aa94-441a-ad46-dd3633b02258) | Vivado Synthesis |
+| ![](https://github.com/user-attachments/assets/3da5a1ef-96d8-4d20-9532-2de46badb9a9) | Real Trade Loop Output |
+
+---
+
+## 🙌 Contribute
+
+Ideas? Want to scale this to MPMC or adaptive queues? PRs welcome.
+
 ---
 
 ## 🙌 Contribute

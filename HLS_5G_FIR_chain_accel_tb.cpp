@@ -1,3 +1,4 @@
+/*** By John Bagshaw ***/
 #include "HLS_5G_FIR_chain_accel.hpp"
 #include <iostream>
 #include <cstdlib>

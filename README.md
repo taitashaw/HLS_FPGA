@@ -204,6 +204,10 @@ store_output()
 |------------------|---------------------|---------------------|
 | ![TT](https://github.com/user-attachments/assets/61668b91-07ac-4db7-8913-cc55b8a24a57) | ![BD](https://github.com/user-attachments/assets/b9d2e924-e158-48d7-84bc-fe5cd52f3c77) | ![DI](https://github.com/user-attachments/assets/0547ed4c-6fa4-4560-8075-2c6e95188442) |
 
+| Benchmark |
+|---------------|
+| ![Benchmark](https://github.com/user-attachments/assets/6b355613-5841-40cf-9656-778356b3be9d) |
+
 ---
 
 ### 🔍 Quick Analysis

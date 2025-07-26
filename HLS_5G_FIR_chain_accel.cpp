@@ -1,3 +1,4 @@
+/*** By John Bagshaw ***/
 #include "HLS_5G_FIR_chain_accel.hpp"
 
 void load_input(sample_t* in, hls::stream<sample_t>& out_stream, int size) {

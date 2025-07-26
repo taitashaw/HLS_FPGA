@@ -1,3 +1,4 @@
+/*** By John Bagshaw ***/
 #ifndef HLS_5G_FIR_CHAIN_ACCEL_HPP
 #define HLS_5G_FIR_CHAIN_ACCEL_HPP
 

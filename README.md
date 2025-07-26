@@ -147,3 +147,88 @@ Ideas? Want to scale this to MPMC or adaptive queues? PRs welcome.
 ## 🙌 Contribute
 
 Pull requests, forks, and optimizations welcome. 
+
+# 🚀 HLS-based 5G FIR Chain Accelerator
+
+> **📈 Ultra-efficient, pipelined, and zero-stall FIR+Gain+Decimation DSP Engine built with Vitis HLS**
+
+## 🔥 Project Summary
+
+Imagine streaming 1024 samples through a **FIR → Gain → Decimation** pipeline in **~5µs** on FPGA — no kernel, no interrupts, no stalls.  
+We built it. It’s fast, deterministic, and verified.
+
+This HLS project demonstrates a fully pipelined digital signal processing accelerator optimized for **5G PHY**, **radar DSP**, and **ultra-low-latency financial compute (HFT)**.
+
+---
+
+## ⛓️ Processing Pipeline
+
+load_input()
+↓
+fir_filter()
+↓
+gain_control()
+↓
+decimator()
+↓
+store_output()
+
+✅ Built with `#pragma HLS DATAFLOW` and `hls::stream` for full task-level parallelism  
+✅ AXI4-Stream interfaces, scalable, synthesizable  
+✅ UltraScale+ friendly (ZCU104/ZCU9EG)  
+✅ Bit-accurate waveform and timing validated
+
+---
+
+## 💡 Technical Highlights
+
+| Feature                        | Status |
+|-------------------------------|--------|
+| ⏱ FIR Latency                 | ~1,052 cycles |
+| 🚀 Max Frequency (Fmax)       | > 200 MHz |
+| 🧠 DSP Slice Usage            | 18 DSPs only |
+| 📦 BRAM / URAM Usage          | Zero |
+| 📉 Decimation Factor          | 2× |
+| ✅ Timing Closure             | ✔️ Clean |
+| 🔬 Waveform Match             | ✔️ Co-sim + RTL |
+
+---
+
+## 📸 Waveform & Benchmark Snapshots
+
+| Co-Simulation | Cycle-Accurate | Synthesis Report |
+|---------------|----------------|------------------|
+| ![WF](https://github.com/user-attachments/assets/161907aa-4e97-4306-b0b6-23d2d3338f96) | ![CA](https://github.com/user-attachments/assets/1e25ace1-4809-416b-8728-9f07e0a3cd28) | ![SYN](https://github.com/user-attachments/assets/dbdf69d1-aa19-4b13-915a-3848912aab23) |
+
+| Latency Timeline | Vivado Block Design | Vitis HLS Design Implementation |
+|------------------|---------------------|---------------------|
+| ![TT](https://github.com/user-attachments/assets/61668b91-07ac-4db7-8913-cc55b8a24a57) | ![BD](https://github.com/user-attachments/assets/b9d2e924-e158-48d7-84bc-fe5cd52f3c77) | ![DI](https://github.com/user-attachments/assets/0547ed4c-6fa4-4560-8075-2c6e95188442) |
+
+---
+
+### 🔍 Quick Analysis
+
+| Metric                          | Value                          |
+|--------------------------------|---------------------------------|
+| 🔄 Full Pipeline Latency       | 1,052 cycles                    |
+| 🧠 DSP Usage                   | 17 DSPs                         |
+| 🎯 Fmax Achieved (Post-Impl)  | **> 214 MHz** (4.671ns period)  |
+| ⚙️ Timing Closure              | ✅ Achieved                     |
+| 🧩 Slices / LUT / FF           | 0 / 3431 / 4256                 |
+---
+
+## 🎯 Use Cases
+
+- 📡 **5G Uplink/Downlink PHY Chains**
+- 🛰️ **Radar Signal Envelope Filtering**
+- 💸 **HFT Market Signal Preprocessing**
+- 🤖 **Edge AI Signal Cleaning (Pre-ML)**
+
+---
+
+## 🧪 How to Run Locally
+# 1. Open in Vitis HLS 2023.2 or later
+# 2. Import source files
+# 3. Run C Simulation
+# 4. Run C/RTL Co-Simulation
+# 5. Check reports for Fmax and utilization

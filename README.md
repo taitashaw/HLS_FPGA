@@ -231,8 +231,108 @@ store_output()
 ---
 
 ## 🧪 How to Run Locally
-# 1. Open in Vitis HLS 2023.2 or later
-# 2. Import source files
-# 3. Run C Simulation
-# 4. Run C/RTL Co-Simulation
-# 5. Check reports for Fmax and utilization
+## 1. Open in Vitis HLS 2023.2 or later
+## 2. Import source files
+## 3. Run C Simulation
+## 4. Run C/RTL Co-Simulation
+## 5. Check reports for Fmax and utilization
+
+# 🚀 HFT_Volatility_Engine
+
+**A Real-Time Rolling Volatility Engine Designed for High-Frequency Trading — in Hardware.**
+
+This project computes rolling variance of tick price streams using a fully pipelined architecture implemented in **Vitis HLS** with **AXI4-Stream** interfaces.
+It mimics real-world financial models used in **HFT**, **portfolio risk estimation**, and **embedded analytics engines** — but executes **entirely in silicon**.
+
+---
+
+## 💡 Key Features
+
+- ✅ Zero software latency — pure hardware acceleration  
+- ✅ Fully pipelined (II = 1) for deterministic throughput  
+- ✅ Real-time streaming via `hls::stream<tick_t>`  
+- ✅ Fixed-point arithmetic with `ap_fixed`  
+- ✅ Modular stages: `fork_input`, `preload_window`, `compute_variance`  
+- ✅ Validated via waveform, CSim, CoSim, synthesis, and timing  
+
+---
+
+## 📈 Rolling Variance Formula
+
+```
+σ² = (Σxᵢ²)/W − (Σxᵢ/W)²
+```
+
+Where:
+- **W** = rolling window size  
+- **xᵢ** = tick price at time `i`
+
+---
+
+## ⚙️ How It Works
+
+1. `fork_input()` splits tick input into two streaming branches  
+2. `preload_window()` initializes window sums for mean and variance  
+3. `compute_variance()` maintains a sliding window using shift registers, computing:
+
+All modules are connected using `hls::stream` and operate concurrently under `#pragma HLS DATAFLOW`.
+
+---
+
+## 📊 Performance Summary
+
+| Metric       | Value         |
+|--------------|---------------|
+| **Latency**  | 6.079 ns      |
+| **Fmax**     | 151.72 MHz    |
+| **II**       | 1             |
+| **DSPs**     | 16            |
+| **LUTs**     | 8,587         |
+| **FFs**      | 9,693         |
+| **BRAMs**    | 6             |
+
+---
+
+## 📸 Waveform & Benchmark Snapshots
+
+| Co-Simulation Output | Synthesis Utilization | Latency Timeline | Testbench Waveform 1 | Testbench Waveform 2 |
+|----------------------|------------------------|------------------|--------------------|------------------------|
+| ![RTL Cosimulation](https://github.com/user-attachments/assets/cfbef389-aa19-4c9c-bd20-e9fdd2d9a819) | ![Synthesis](https://github.com/user-attachments/assets/98e4e073-fcc4-4e99-b521-f3fc3d14d2dd) | ![Timeline](https://github.com/user-attachments/assets/2fd51463-bd83-40da-ad05-c449d8bd0305) |  ![Waveform1](https://github.com/user-attachments/assets/c1d9098d-15df-42ff-b10a-bfe57df7ffdf) | ![Waveform2](https://github.com/user-attachments/assets/374685f0-4c03-4e3e-9f48-c14965be6cd2)
+
+## 💬 Real-World Use Cases
+
+- ⚡ FPGA-native volatility filters in high-frequency trading
+- 📉 DeFi and crypto risk analytics with ultra-low latency
+- 🧠 AI models fed by hardware-accelerated financial stats
+- 🚀 Edge inference on risk/volatility for embedded finance
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome.  
+Feel free to fork and enhance — new features, new financial indicators, AXI-MM integration, or CI automation.
+
+---
+
+## 👤 Author
+
+**John Bagshaw**  
+Award-winning researcher and HLS/FPGA/C++ Engineer  
+🔗 [LinkedIn](https://linkedin.com/in/jotshaw)
+
+> DM me if you're hiring, collaborating, or building FPGA-based quant infrastructure.
+
+---
+
+## ⭐ Support
+
+If this project inspires you:
+- ⭐ Star the repo  
+- 🔁 Share with fellow quant or hardware devs  
+- 💬 Comment your ideas or feature requests
+
+---
+
+**Let’s build finance at the speed of light. 🚀**  
+**Silicon-native volatility is here.**

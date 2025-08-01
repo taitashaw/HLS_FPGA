@@ -1,3 +1,5 @@
+/*** By John Bagshaw ***/
+
 #ifndef HFT_VOLATILITY_ENGINE_HPP
 #define HFT_VOLATILITY_ENGINE_HPP
 

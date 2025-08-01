@@ -1,3 +1,5 @@
+/*** By John Bagshaw ***/
+
 #include "HFT_volatility_engine.hpp"
 #include <iostream>
 #include <cmath>

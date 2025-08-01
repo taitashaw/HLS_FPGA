@@ -1,3 +1,5 @@
+/*** By John Bagshaw ***/
+
 #include "HFT_volatility_engine.hpp"
 
 void fork_input(hls::stream<tick_t>& in,

@@ -372,13 +372,13 @@ AXI4-Stream Output
 ## 🧠 Core Functions
 
 // Reads two operands from AXI4-Stream
-void load_input(hls::stream<axis_t>& in, data_t& a, data_t& b);
+- void load_input(hls::stream<axis_t>& in, data_t& a, data_t& b);
 
 // Computes (a + b) * coefficient
-acc_t multiply_accumulate(data_t a, data_t b, data_t coefficient);
+- acc_t multiply_accumulate(data_t a, data_t b, data_t coefficient);
 
 // Streams result to AXI4-Stream
-void store_result(hls::stream<axis_t>& out, acc_t result);
+- void store_result(hls::stream<axis_t>& out, acc_t result);
 
 - 🔁 mac_top(...) wires it all into a fully pipelined, real-time MAC unit.
 

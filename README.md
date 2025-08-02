@@ -336,3 +336,119 @@ If this project inspires you:
 
 **Let’s build finance at the speed of light. 🚀**  
 **Silicon-native volatility is here.**
+
+# 🚀 MAC_Accelerator_HLS
+
+**Real-Time Multiply-Accumulate Hardware Accelerator** built using **Vitis HLS** for DSP/AI workloads.  
+🧠 Pipelined. 💡 Coefficient-Instantiated. ⚡ Ultra-low-latency.  
+🎯 Ideal for real-time 5G PHY, radar pipelines, CNN inference, and embedded vision systems.
+
+---
+
+## 🔧 Architecture Overview
+
+AXI4-Stream Input
+↓
+load_input()
+↓
+multiply_accumulate()
+↓
+store_result()
+↓
+AXI4-Stream Output
+
+---
+
+## 📦 Features
+
+- ✅ **Fully Pipelined** Top-Level MAC
+- ✅ **Function Instantiation** for coefficient-based specialization
+- ✅ **AXI4-Stream I/O + AXI-Lite Control** (Vivado/Vitis Ready)
+- ✅ **II = 1** (Initiation Interval of 1) for Real-Time Performance
+- ✅ **Waveform, Cosim, Synthesis Snapshots Included**
+
+---
+
+## 🧠 Core Functions
+
+// Reads two operands from AXI4-Stream
+void load_input(hls::stream<axis_t>& in, data_t& a, data_t& b);
+
+// Computes (a + b) * coefficient
+acc_t multiply_accumulate(data_t a, data_t b, data_t coefficient);
+
+// Streams result to AXI4-Stream
+void store_result(hls::stream<axis_t>& out, acc_t result);
+
+- 🔁 mac_top(...) wires it all into a fully pipelined, real-time MAC unit.
+
+## 🧠 Core Functions
+---
+
+## 🧪 Testbench Output
+
+MAC result: 90
+
+---
+
+### 📸 Visual Highlights
+
+#### 3-Panel View
+
+| Co-Simulation Waveform                          | Throughput Timeline                           | Synthesis Report                             |
+|--------------------------------------------------|------------------------------------------------|----------------------------------------------|
+| ![Waveform](https://github.com/user-attachments/assets/34a0d6ed-0e9f-442b-8508-81bacd5990f8) | ![Timeline](https://github.com/user-attachments/assets/f1ee2394-b121-44fe-81ef-3f28f228a53b) | ![Synthesis](https://github.com/user-attachments/assets/b89d929c-b167-4664-a01c-0d7df6544997) |
+
+#### 2-Panel View
+
+| Implementation Block Diagram                    | Control Analysis                               |
+|--------------------------------------------------|------------------------------------------------|
+| ![Block Diagram](https://github.com/user-attachments/assets/1c275031-52a2-4d25-a277-1f16eb2ae7ba) | ![Control Analysis](https://github.com/user-attachments/assets/071552c2-9e3e-4e23-92ad-f8c60fd7ab8b) |
+
+---
+
+### 📂 Files Included
+
+| File Name               | Description                                   |
+|-------------------------|-----------------------------------------------|
+| `HLS_MAC_accel.hpp`     | Top-level function and type declarations      |
+| `HLS_MAC_accel.cpp`     | Pipeline logic with function directives       |
+| `HLS_MAC_accel_tb.cpp`  | AXI stream testbench simulation               |
+
+---
+
+### 🔗 Interface Summary
+
+| Port Name                | Description                                 |
+|--------------------------|---------------------------------------------|
+| `input_stream_operands` | AXI4-Stream input (two operands)            |
+| `output_stream_result`  | AXI4-Stream output (MAC result)             |
+| `coefficient`           | AXI4-Lite control register for MAC weight   |
+| `ctrl_axi_lite`         | AXI4-Lite interface                         |
+| `mac_clk`               | Clock signal                                |
+| `mac_reset_n`           | Active-low reset                            |
+| `mac_done_interrupt`    | Signals when result is valid                |
+
+---
+
+### 💡 Real-World Applications
+
+- 📶 **5G Baseband DSP**
+- 🧠 **Edge AI Inference Engines**
+- 🛰️ **Satellite Imaging & Radar**
+- 💻 **Embedded Vision SoCs**
+- 📊 **High-Frequency Financial Analytics**
+
+---
+
+### 🤝 Contributing
+
+Want to port this to Zynq, add burst DMA, or wrap it in a full CNN accelerator?  
+**Fork, enhance, and tag me!**
+
+---
+
+### 🔥 Let’s Go Viral Together
+
+If you're building ultra-low-latency pipelines, this project is your launchpad.  
+⭐ **Star this repo** and share your MAC benchmarks.

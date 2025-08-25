@@ -35,6 +35,124 @@ Want to optimize a pipeline, add a new design, or share your performance results
 
 ### 📣 Let's make FPGAs mainstream for developers and innovators everywhere. Star ⭐ the repo, share with your network, and ignite the hardware revolution!
 
+# 🚀 RF Doppler Spoof Detection Engine  
+
+## 📌 Overview  
+This project implements a **real-time FPGA/HLS-based Doppler-Aware Spoof Detection Engine** designed to secure RF and GNSS systems from spoofing attacks. Built with **Vitis HLS + Vivado**, it validates **end-to-end dataflow** from high-level C++ through synthesis, implementation, and hardware deployment on **Xilinx Zynq UltraScale+ (ZCU104)**.  
+
+---
+
+## 🔒 Key Features  
+- **ADC Demux + FFT Pipeline**: Continuous real-time spectral scanning.  
+- **Magnitude Estimator**: Computes `sqrt(I² + Q²)` per cycle.  
+- **Peak Detector**: Finds max FFT bin + magnitude.  
+- **Spoof Rule Engine**: Detects spoofing with `(edge_bin && mag > threshold)` logic.  
+- **Ultra-Low Latency**: Timing closure at **7.107 ns**, Fmax ≈ 140.71 MHz.  
+- **Reusable IP**: Packaged as an **AXI4-Stream IP core** for seamless FPGA/SoC integration.  
+
+---
+
+## 📊 System Architecture  
+
+<img width="1135" height="722" alt="proj1_final_arch_slide9" src="https://github.com/user-attachments/assets/89b7b333-777b-4e6e-8f88-ffb8a2075133" />  
+
+### Block Flow  
+- **Input (adc_stream)** → Demux → FFT → Magnitude → Peak Detection → Spoof Rule → **Output Alert Stream**.  
+
+---
+
+## ✅ Verification Flow  
+
+### 1. C/RTL Co-Simulation  
+![rf_doppler_spoof_engine_slide7](https://github.com/user-attachments/assets/2d0c5c96-43d5-409a-8f8d-86e512368ee9) 
+
+- Bit-accurate functional verification between C++ and RTL.  
+- Validated pipeline parallelism and throughput.  
+
+### 2. Cycle-Accurate Verification  
+![rf_doppler_spoof_engine_slide6](https://github.com/user-attachments/assets/b2e3289f-f053-4c35-b156-dd0d26b34285)
+
+- Confirmed cycle-by-cycle correctness of streams, handshake, and throughput.  
+
+---
+
+## ⚡ Synthesis & Timing  
+
+![rf_doppler_spoof_engine_slide5](https://github.com/user-attachments/assets/aa71c1e8-301f-47e0-9b9c-043477f2ecfe)
+
+- Timing closed at **7.107 ns** (target: 10 ns).  
+- Achieved **Fmax: ~140.71 MHz**.  
+- Efficient resource utilization: *LUT: 158 | FF: 130 | BRAM: 0 | DSP: 0*.  
+
+---
+
+## 🔐 Spoof Detection Validated  
+
+![rf_doppler_spoof_engine_slide4](https://github.com/user-attachments/assets/d0f8816d-dc8d-44b7-98bd-099a7097b78f) 
+
+- Testcases confirmed:  
+  - Edge spoof → Detected 🚨  
+  - Center strong (clean) → No alert ✅  
+  - Weak edge noise → Ignored ✅  
+
+---
+
+## 🏗️ Implementation  
+
+![rf_doppler_spoof_engine_slide8](https://github.com/user-attachments/assets/17f58d22-ed00-425a-8674-b17be727b0fa)
+
+- Vivado Implementation reports: **timing met, routing clean**.  
+- Packaged as **AXI4-Stream IP** for integration.  
+
+---
+
+## 🖥️ Customized IP Core  
+
+![rf_doppler_spoof_engine_slide2](https://github.com/user-attachments/assets/2b9d5e60-8763-4e0b-bdc1-abb52265b777)
+
+- IP block packaged for Zynq SoC integration.  
+- Interfaces: `adc_stream`, `alert_stream`, `ap_ctrl`, `ap_clk`, `ap_rst_n`.  
+
+---
+
+## 🔄 From HLS to Hardware  
+
+![rf_doppler_spoof_engine_slide1](https://github.com/user-attachments/assets/85af3cce-a58f-48c4-87f2-8835460b467c) 
+
+- Integrated into **ZCU104 block design**.  
+- End-to-end hardware datapath verified with **DMA → FIFO → Spoof Engine → AXI interconnect**.  
+
+---
+
+## 📍 Place & Route (PnR)  
+
+![rf_doppler_spoof_engine_slide3](https://github.com/user-attachments/assets/bd883e4a-1c06-4b45-bf36-b3d1297793dc)
+
+- Clean placement on **ZCU104 FPGA fabric**.  
+- Resource-efficient footprint.  
+
+---
+
+## 🌐 Impact
+This project demonstrates how FPGA + HLS can deliver production-grade, ultra-low-latency spoof detection for GNSS, RF, and quantum-secure communication systems.
+
+## ⚡ How to Build & Run
+Open project in Vitis HLS 2024.1+
+
+Run C Simulation → C/RTL Co-Simulation
+
+Export RTL → Vivado → Package as IP
+
+Integrate into Zynq block design
+
+Generate Bitstream & Deploy
+
+📌 Author
+👤 John Bagshaw | 
+FPGA/HLS & RF Security Expert | 7+ Years Industry Experience
+
+✨ If you believe secure RF/GNSS systems are critical for the future — let’s connect!
+
 # 🚨 BREAKING: FPGA-Accelerated DSP Pipelines ⚡📈
 
 Just completed — a fully pipelined, real-time DSP accelerator optimized using Vitis HLS for High-Frequency Trading, signal intelligence, and low-latency inferencing.

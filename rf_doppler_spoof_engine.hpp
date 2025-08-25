@@ -1,4 +1,5 @@
 // rf_doppler_spoof_engine.hpp
+/*** By John Bagshaw ***/
 #pragma once
 #include <hls_stream.h>
 #include <ap_int.h>
@@ -36,3 +37,4 @@ typedef ap_fixed<32, 8>  magnitude_t;    // |I+jQ|
 // ------------------- Top-level prototype ----------------------------------------
 void rf_doppler_spoof_engine(hls::stream<axis_in_t>  &adc_stream,
                              hls::stream<axis_out_t> &alert_stream);
+

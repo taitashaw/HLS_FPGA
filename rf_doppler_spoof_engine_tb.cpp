@@ -1,5 +1,7 @@
 // tb_rf_doppler_spoof_engine.cpp
 // Industry-style, self-checking testbench for rf_doppler_spoof_engine
+/*** By John Bagshaw ***/
+
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -158,3 +160,4 @@ int main()
     std::cout << "\nAll tests completed.\n";
     return 0;
 }
+

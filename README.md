@@ -570,3 +570,17 @@ Want to port this to Zynq, add burst DMA, or wrap it in a full CNN accelerator?
 
 If you're building ultra-low-latency pipelines, this project is your launchpad.  
 ⭐ **Star this repo** and share your MAC benchmarks.
+
+---
+
+## Author
+
+**John Bagshaw** -- Founder, [ShawSilicon](https://shawsilicon.ai) | Senior FPGA Design Engineer, 8+ years in production FPGA/RTL design
+
+CXL protocol integration, DDR4 memory controllers, multi-clock domain architectures, AXI4/Avalon-MM interfaces, and production verification on Intel Agilex 7 and AMD Zynq UltraScale+ platforms.
+
+ShawSilicon runs fixed-scope RTL audits and verifies chip engineers on a four-stage technical screen. [shawsilicon.ai](https://shawsilicon.ai)
+
+[![GitHub](https://img.shields.io/badge/GitHub-taitashaw-181717?style=flat-square&logo=github)](https://github.com/taitashaw)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-jotshaw-0A66C2?style=flat-square&logo=linkedin)](https://www.linkedin.com/in/jotshaw/)
+[![Website](https://img.shields.io/badge/Website-shawsilicon.ai-FF6B35?style=flat-square&logo=safari)](https://shawsilicon.ai)

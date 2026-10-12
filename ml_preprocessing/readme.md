@@ -20,7 +20,7 @@ This project implements an end-to-end, single-pass streaming preprocessing pipel
 The pipeline uses a **Single-Pass Streaming DATAFLOW Architecture**. Intermediate multi-pass external memory round-trips have been eliminated by streaming data concurrently between tasks using `hls::stream<>` FIFOs.
 
 
-```
+
 
 ```
    [ Input Data (m_axi / Stream) ]
@@ -50,7 +50,7 @@ The pipeline uses a **Single-Pass Streaming DATAFLOW Architecture**. Intermediat
 
 ```
 
-```
+
 
 ---
 
